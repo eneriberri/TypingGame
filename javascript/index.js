@@ -15,9 +15,20 @@ $(document).ready(function() {
   $('#type-box').keypress(function(event) 
   {  
     if(event.keyCode === prompt.charCodeAt(i)) {
-      promptArr[i] = "<span class='highlight'>" + promptArr[i] + "</span>";
+      
+      var rgxSpan = /<\w+\s+\w+='\w+'>/;
+      var rgxSpanEnd = /<\/\w+>/;
+      var str = promptArr[i];
+      console.log(str);
+      str = str.replace(rgxSpan, "");
+      str = str.replace(rgxSpanEnd, "");
+      console.log("after " + str);
+      promptArr[i] = str;
+      // promptArr[i] = "<span class='highlight'>" + promptArr[i] + "</span>";
+      promptArr[i+1] = "<span class='highlight'>" + promptArr[i+1] + "</span>";
       promptStr = promptArr.join("");
       $('.prompt').html(promptStr);
+    
       // $('.prompt').addClass('highlight');
       // $('.prompt').removeClass('highlight-error');
       i++;
