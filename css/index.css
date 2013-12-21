@@ -9,9 +9,9 @@ body {
 }
 
 .prompt {
-  margin: 20px;
+  margin: 50px;
   font-size: 24px;
-  text-align: left;
+  text-align: justify;
 }
 
 #type-box {
@@ -34,7 +34,11 @@ h1 {
 }
 
 .highlight {
-  background-color: #ffc700;
+  background-color: #7FDBFF;
+}
+
+.highlight-error {
+  background-color: #FF5335;
 }
 
 
