@@ -11,6 +11,7 @@ $(document).ready(function() {
   
   //highlights prompt for each letter typed
   var i = 0;
+  var mistakes = 0;
   $('#type-box').keypress(function(event) 
   {  
     if(i !== promptArr.length) { //instead of this, unbind event
@@ -23,22 +24,23 @@ $(document).ready(function() {
         if(i !== promptArr.length - 1) {
           promptArr[i+1] = "<span class='highlight'>" 
                            + promptArr[i+1] + "</span>"; 
-        }   
+        }  
+         
         i++;
+        
+        if(i === promptArr.length) {
+          window.clearInterval(timerId);
+          var accuracy = Math.floor((1 - mistakes/prompt.length) * 100);
+          $('.accuracy').html("<h3>" + accuracy + "% accuracy rate</h3>");
+        }
       }
       else {
-        promptArr[i] = "<span class='error'>" 
-                       + promptArr[i] + "</span>";
+        promptArr[i] = "<span class='error'>" + promptArr[i] + "</span>";
+        mistakes++;
       }  
     
       promptStr = promptArr.join("");
       $('.prompt').html(promptStr);
-    }
-    else {
-      if(timerId !== null) {
-        window.clearInterval(timerId);
-        timerId = null;
-      }
     }
   });
   
