@@ -1,11 +1,15 @@
 body {
   font-family: 'Questrial', sans-serif;
-  font-size: 32px;
 }
 
 .content {
   margin: 0 auto;
   width: 500px;
+}
+
+.prompt {
+  margin: 20px;
+  font-size: 24px;
 }
 
 #type-box {
@@ -23,7 +27,12 @@ body {
 
 h1 {
   font-family: 'Quicksand', sans-serif;
-  text-align: center;
+  text-align: justify;
+  font-size: 48px;
+}
+
+.highlight {
+  background-color: #FFFF00;
 }
 
 
