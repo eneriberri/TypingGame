@@ -14,26 +14,26 @@ $(document).ready(function() {
   var i = 0;
   $('#type-box').keypress(function(event) 
   {  
+    var rgxSpan = /<\w+\s+\w+='\w+'>/;
+    var rgxSpanEnd = /<\/\w+>/;
+    var str = promptArr[i];
+    str = str.replace(rgxSpan, "");
+    str = str.replace(rgxSpanEnd, "");
+    
     if(event.keyCode === prompt.charCodeAt(i)) {
-      
-      var rgxSpan = /<\w+\s+\w+='\w+'>/;
-      var rgxSpanEnd = /<\/\w+>/;
-      var str = promptArr[i];
-      console.log(str);
-      str = str.replace(rgxSpan, "");
-      str = str.replace(rgxSpanEnd, "");
-      console.log("after " + str);
       promptArr[i] = str;
-      // promptArr[i] = "<span class='highlight'>" + promptArr[i] + "</span>";
+
       promptArr[i+1] = "<span class='highlight'>" + promptArr[i+1] + "</span>";
       promptStr = promptArr.join("");
       $('.prompt').html(promptStr);
     
-      // $('.prompt').addClass('highlight');
-      // $('.prompt').removeClass('highlight-error');
       i++;
     }
     else {
+      promptArr[i] = str;
+      promptArr[i] = "<span class='error'>" + promptArr[i] + "</span>";
+      promptStr = promptArr.join("");
+      $('.prompt').html(promptStr);
       // $('.prompt').addClass('highlight-error');
       // $('.prompt').removeClass('highlight');
     }  
