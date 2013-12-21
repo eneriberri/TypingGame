@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var promptArr = prompt.split("");
   promptArr.shift();
-  promptArr.unshift("<span class='highlight'>" + prompt[0] + "</span>")
+  promptArr.unshift("<span class='highlight'>" + prompt[0] + "</span>");
   $('.prompt').append(promptArr.join(""));
   
   //highlights prompt for each letter typed
@@ -42,11 +42,12 @@ $(document).ready(function() {
     }
   });
   
-  
-  
   //new prompt
   $('.button').click(function() {
-
+    promptArr = ["EH?", " ", "Yo."];
+    promptArr.unshift("<span class='highlight'>" + promptArr[0][0] + "</span>");
+    console.log(promptArr);
+    $('.prompt').html(promptArr.join(""));
   })
   
   $('.timer').text("00:00");
@@ -62,5 +63,4 @@ $(document).ready(function() {
     sec++;
   }, 1000); 
 
-  //if(true) window.clearInterval(timerId); //finished typing
 });
