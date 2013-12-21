@@ -1,4 +1,9 @@
 $(document).ready(function() {
   $('#type-box').focus();
-  $('.prompt').addClass('highlight')
+  
+  $('#type-box').keypress(function() 
+  {  
+    $('.prompt').toggleClass('highlight');
+  
+  });
 });

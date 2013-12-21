@@ -3,6 +3,7 @@ body {
 }
 
 .content {
+  text-align: center;
   margin: 0 auto;
   width: 500px;
 }
@@ -10,6 +11,7 @@ body {
 .prompt {
   margin: 20px;
   font-size: 24px;
+  text-align: left;
 }
 
 #type-box {
@@ -17,7 +19,7 @@ body {
   width: 80%;
   font-size: 150%;
   border: none;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #dbdbdb;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -27,12 +29,12 @@ body {
 
 h1 {
   font-family: 'Quicksand', sans-serif;
-  text-align: justify;
+  text-align: center;
   font-size: 48px;
 }
 
 .highlight {
-  background-color: #FFFF00;
+  background-color: #ffc700;
 }
 
 
