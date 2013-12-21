@@ -1,6 +1,7 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-image: url('../cat.png');
+  margin-top: 75px;
+/*  background-image: url('../cat.png');*/
 }
 
 .content {
@@ -18,13 +19,13 @@ body {
 }
 
 #type-box {
+  margin: 20px;
   width: 80%;
   font-size: 150%;
   border: none;
   border-bottom: 1px solid #dbdbdb;
   background: none;
   font-family: 'Quicksand', sans-serif;
-  background-color: rgba(224, 224, 224, 0.5);
 }
 
 #type-box:focus {
@@ -57,6 +58,19 @@ h1 {
 
 .timer {
   font-size: 130%;
+}
+
+.button {
+  background-color: #7FDBFF;
+  width: 30%;
+  margin: 20px auto;
+  padding: 5px 5px 5px 5px;
+  border: solid 1px #a5a5a5;
+  opacity: .9;
+}
+
+.button:hover {
+  cursor: crosshair;
 }
 
 

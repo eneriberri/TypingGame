@@ -2,12 +2,7 @@ $(document).ready(function() {
   $('#type-box').focus();
   
   var prompt = "So amaze. Very mystery. My tail much improve. Flying. " +
-  "Such growth." + " Cat awaits. Wow.";
-  
-  // var prompt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " + 
-  // "Mauris sed tortor imperdiet, ultrices est ut, auctor neque. In ligula lacus, " + 
-  // "faucibus non ante eget, malesuada semper odio. Pellentesque et quam id lorem " +
-  // "feugiat consectetur. Aenean tincidunt metus mi, sed lobortis elit sollicitudin et.";
+  "Such growth. Cat awaits. Meow meow meow. Infinity. Wow.";
 
   var promptArr = prompt.split("");
   promptArr.shift();
@@ -39,7 +34,20 @@ $(document).ready(function() {
       promptStr = promptArr.join("");
       $('.prompt').html(promptStr);
     }
+    else {
+      if(timerId !== null) {
+        window.clearInterval(timerId);
+        timerId = null;
+      }
+    }
   });
+  
+  
+  
+  //new prompt
+  $('.button').click(function() {
+
+  })
   
   $('.timer').text("00:00");
   var sec = 0;
