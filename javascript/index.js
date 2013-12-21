@@ -1,10 +1,13 @@
 $(document).ready(function() {
   $('#type-box').focus();
   
-  var prompt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " + 
-  "Mauris sed tortor imperdiet, ultrices est ut, auctor neque. In ligula lacus, " + 
-  "faucibus non ante eget, malesuada semper odio. Pellentesque et quam id lorem " +
-  "feugiat consectetur. Aenean tincidunt metus mi, sed lobortis elit sollicitudin et.";
+  var prompt = "So amaze. Very mystery. My tail much improve. Flying. " +
+  "Such growth." + " Cat awaits. Wow.";
+  
+  // var prompt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " + 
+  // "Mauris sed tortor imperdiet, ultrices est ut, auctor neque. In ligula lacus, " + 
+  // "faucibus non ante eget, malesuada semper odio. Pellentesque et quam id lorem " +
+  // "feugiat consectetur. Aenean tincidunt metus mi, sed lobortis elit sollicitudin et.";
 
   var promptArr = prompt.split("");
   promptArr.shift();
