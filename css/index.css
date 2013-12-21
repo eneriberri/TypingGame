@@ -11,7 +11,7 @@ body {
 .prompt {
   margin: 50px;
   font-size: 24px;
-  text-align: justify;
+  text-align: left;
 }
 
 #type-box {
