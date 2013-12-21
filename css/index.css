@@ -1,5 +1,5 @@
 body {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .content {
@@ -21,6 +21,7 @@ body {
   border: none;
   border-bottom: 1px solid #dbdbdb;
   font-family: 'Quicksand', sans-serif;
+/*font-family: 'Questrial', sans-serif;*/
 }
 
 #type-box:focus {
@@ -28,7 +29,6 @@ body {
 }
 
 h1 {
-  font-family: 'Quicksand', sans-serif;
   text-align: center;
   font-size: 48px;
 }
@@ -39,6 +39,10 @@ h1 {
 
 .error {
   background-color: #FF5335;
+}
+
+.timer {
+  font-size: 130%;
 }
 
 
