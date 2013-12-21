@@ -1,0 +1,29 @@
+body {
+  font-family: 'Questrial', sans-serif;
+  font-size: 32px;
+}
+
+.content {
+  margin: 0 auto;
+  width: 500px;
+}
+
+#type-box {
+  margin: 0 auto;
+  width: 80%;
+  font-size: 150%;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#type-box:focus {
+  outline: none;
+}
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+
