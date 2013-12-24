@@ -10,7 +10,7 @@ body {
   
 }
 
-.content {
+main {
   text-align: center;
   margin: 0 auto;
   width: 500px;
@@ -77,6 +77,13 @@ h1 {
 
 .button:hover {
   cursor: crosshair;
+}
+
+footer {
+  position: absolute;
+  font-size: 80%;
+  left: 45%;
+  bottom: 10px;
 }
 
 
