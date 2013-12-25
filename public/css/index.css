@@ -1,6 +1,5 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  margin-top: 75px;
 /*  background-image: url('../cat.png');*/
 
   background-image:url('../cathead.png');
@@ -77,13 +76,6 @@ h1 {
 
 .button:hover {
   cursor: crosshair;
-}
-
-footer {
-  position: absolute;
-  font-size: 80%;
-  left: 45%;
-  bottom: 10px;
 }
 
 

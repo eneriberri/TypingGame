@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Questrial|Quicksand">
+</head>
+<body>
+  <main>
+    <header>
+    <h1><span class="title1">Type </span><span class="title2">Type </span><span class="title3">Meow</span></h1>
+    </header>
+    
+    <input type="text" id="type-box" placeholder="Type here" autofocus />
+    <p></p>
+    <div class="prompt"></div>
+    <div class="timer">00:00</div>
+    <!-- <div class="button">New prompt</div> -->
+    <div class="accuracy"></div>
+    
+    <div id="chat-messages">
+    </div>
+  
+    <form class="send-form">
+      <input id="send-message" type="text">
+      <input id="send-button" type="submit" value="Send">
+    </form>
+    <div class="room-listings">
+    </div>
+  </main>
+  
+  <!-- <footer>Irene Nguyen &copy; 2013</footer> -->
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/javascript/index.js"></script>
+  <script src="/javascript/chat.js"></script>
+  <script src="/javascript/chat_ui.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

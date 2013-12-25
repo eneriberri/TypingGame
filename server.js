@@ -2,10 +2,14 @@ var http = require('http');
 var router = require('./router.js').router;
 
 var httpServer = http.createServer(function (request, response) {
-  router(request, response);
-}).listen(8080);
+        router(request, response);
+});
 
-console.log('Server running on port 8080');
+var port = 8080;
+
+httpServer.listen(port);
+
+console.log('Server running at http://localhost:' + port + '/');
 
 var socketIOListen = require('./lib/chat_server.js').socketIOListen;
 
