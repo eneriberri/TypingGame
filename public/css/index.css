@@ -33,6 +33,13 @@ main {
   font-family: 'Quicksand', sans-serif;
 }
 
+hr {
+  width: 80%;
+  background-color: #dbdbdb; 
+  height: 1px; 
+  border: 0;
+}
+
 #type-box:focus {
   outline: none;
 }

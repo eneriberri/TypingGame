@@ -6,7 +6,8 @@
   }
 
   var processInput = function (chat) {
-  	var text = $('#send-message').val();
+  	//var text = $('#send-message').val();
+    var text = $('#type-box').val();
   	if(text[0] === '/'){
       chat.processCommand(text.slice(1));	  
   	} else {
@@ -51,6 +52,12 @@
   		e.preventDefault();
   		processInput(chat);
   		return false;
+  	});
+    
+  	$('#type-box').keypress(function(e) {
+  		if(e.keyCode === 32) {//spacebar
+  		  processInput(chat);
+      }
   	});
   });
 })(this);
