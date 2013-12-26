@@ -85,9 +85,18 @@ h1 {
   cursor: crosshair;
 }
 
+#progress-bars {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .progress {
-  background-color: black;
-  height: 15px;
+  background-color: #7FDBFF;
+  height: 20px;
+}
+
+.accuracy {
+  height: 25px;
 }
 
 

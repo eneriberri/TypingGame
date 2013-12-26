@@ -6,7 +6,10 @@
   }
   
   var makeBar = function(progress) {
-    return $("<div class='progress' style='width: " + progress.text + "%';></div>");
+    var user = progress.user
+    return $("<div data-user='" + user +
+             "' class='progress' style='width: " +
+             progress.text + "%';></div>");
   }
 
   var processInput = function(chat) {
@@ -19,9 +22,10 @@
     $("#send-message").val('');
   }
   
-  var calcProgress = function(chat, i, prompt) {
+  var calcProgress = function(chat, i, prompt, keyCode) {
     var progress = Math.floor(i/prompt.wordsToType.length*100);
     chat.sendProgress(progress);
+    if (keyCode === 32) $("#type-box").val('');
   }
 
   var updateRoomList = function(roomData){
@@ -38,6 +42,12 @@
         $(".room-listings").append(roomListing); 
       }
     });
+  }
+  
+  var finishedRace = function(prompt) {
+    window.clearInterval(prompt.timerId);
+    var accuracy = Math.floor((1 - prompt.typos/prompt.wordsToType.length) * 100);
+    $('.accuracy').html("<h3>" + accuracy + "% accuracy rate</h3>");
   }
 
   $(document).ready(function() {
@@ -70,9 +80,11 @@
     var prompt = new ChatApp.Prompt(socket);
     
   	socket.on('typing', function(progress) {
+      //find the progress bar assoc with the user
+      //and replace it if it already exists
   		var bar = makeBar(progress);
-      $("#progress-bars").html(bar);
-  		// $("#chat-messages").html(escapeDivText(progress.text));
+      $("[data-user='"+ progress.user + "']").replaceWith(bar);
+      $("#progress-bars").append(bar);
   	});
     
     prompt.displayPromptArr();
@@ -93,7 +105,7 @@
     
         if(event.keyCode === prompt.wordsToType.charCodeAt(i)) {
           
-          calcProgress(chat, i, prompt); //calculate progress bar for race
+          calcProgress(chat, i, prompt, event.keyCode); //calculate progress bar for race
           
           if(i !== prompt.arr.length - 1) {
             prompt.arr[i+1] = "<span class='highlight'>" 
@@ -103,12 +115,10 @@
           i++;
         
           //if completed prompt, stop timer, show accuracy rate
-          if(i === prompt.arr.length) { 
-            window.clearInterval(prompt.timerId);
-            var accuracy = Math.floor((1 - prompt.typos/prompt.wordsToType.length) * 100);
-            $('.accuracy').html("<h3>" + accuracy + "% accuracy rate</h3>");
-          }
+          if(i === prompt.arr.length) 
+            finishedRace(prompt);         
         }
+        
         else {
           prompt.arr[i] = "<span class='error'>" + prompt.arr[i] + "</span>";
           prompt.typos++;
