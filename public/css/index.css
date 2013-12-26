@@ -85,4 +85,9 @@ h1 {
   cursor: crosshair;
 }
 
+.progress {
+  background-color: black;
+  height: 15px;
+}
+
 

@@ -8,6 +8,10 @@
   Chat.prototype.sendMessage = function(text){
   	this.socket.emit('message', { text: text, room: this.room });
   }
+  
+  Chat.prototype.sendProgress = function(text){
+  	this.socket.emit('typing', { text: text, room: this.room });
+  }
 
   Chat.prototype.joinRoom = function(room){
     this.room = room;
