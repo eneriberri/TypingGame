@@ -93,6 +93,7 @@ h1 {
 .progress {
   background-color: #7FDBFF;
   height: 20px;
+  margin-bottom: 5px;
 }
 
 .accuracy {

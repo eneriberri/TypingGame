@@ -79,12 +79,22 @@
     
     var prompt = new ChatApp.Prompt(socket);
     
+    socket.on('startProgress', function(data) {
+      var progress = { text: 0, user: data.user };
+      console.log(progress);
+      var bar = makeBar(progress);
+      $("#progress-bars").append(bar);
+    });
+    
   	socket.on('typing', function(progress) {
       //find the progress bar assoc with the user
-      //and replace it if it already exists
+      //and replace it with updated progress bar
   		var bar = makeBar(progress);
+      if($("[data-user='"+ progress.user + "']").length === 0) {
+        $("#progress-bars").append(bar);
+      }
       $("[data-user='"+ progress.user + "']").replaceWith(bar);
-      $("#progress-bars").append(bar);
+      //$("#progress-bars").append(bar);
   	});
     
     prompt.displayPromptArr();

@@ -12,6 +12,10 @@
   Chat.prototype.sendProgress = function(text){
   	this.socket.emit('typing', { text: text, room: this.room });
   }
+  
+  Chat.prototype.startProgress = function(data) {
+    this.socket.emit('startProgress', { user: data.user, room: this.room });
+  }
 
   Chat.prototype.joinRoom = function(room){
     this.room = room;
