@@ -20,15 +20,16 @@
     <hr>
     <br>
     <div id="progress-bars"></div>
-    <div id="chat-messages">
+    <div class="chat">
+      <div class="room-listings"></div>
+      <div id="chat-messages"></div>
     </div>
   
-    <form class="send-form">
-      <input id="send-message" type="text">
-      <input id="send-button" type="submit" value="Send">
-    </form>
-    <div class="room-listings">
-    </div>
+      <form class="send-form">
+        <input id="send-message" class="chat-box" type="text" placeholder="Chat here">
+        <input id="send-button" class="button" type="submit" value="Send">
+      </form>
+    
   </main>
   
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

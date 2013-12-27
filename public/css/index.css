@@ -74,11 +74,11 @@ h1 {
 
 .button {
   background-color: #7FDBFF;
-  width: 30%;
   margin: 20px auto;
   padding: 5px 5px 5px 5px;
   border: solid 1px #a5a5a5;
   opacity: .9;
+  width: 10%;
 }
 
 .button:hover {
@@ -87,6 +87,7 @@ h1 {
 
 #progress-bars {
   margin: 0 auto;
+  margin-bottom: 10px;
   width: 80%;
 }
 
@@ -98,6 +99,46 @@ h1 {
 
 .accuracy {
   height: 25px;
+}
+
+/*.chat {
+  width: 80%;
+}*/
+
+#chat-messages {
+  margin: 0 auto;
+  text-align: left;
+  height: 130px;
+  width: 70%;
+  border: solid 1px #a5a5a5;
+  float: right;
+  overflow: scroll;
+}
+
+.chat-input {
+  
+}
+
+.chat-box {
+  width: 70%;
+  font-size: 120%;
+  border: none;
+  border-bottom: 1px solid #dbdbdb;
+  background: none;
+  font-family: 'Quicksand', sans-serif;  
+}
+
+.room-listings {
+  border: 1px solid #a5a5a5;
+  height: 130px;
+  width: 25%;
+  float: left;
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
 }
 
 

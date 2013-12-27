@@ -2,7 +2,7 @@
   var ChatApp = root.ChatApp = (root.ChatApp || {});
   var Chat = ChatApp.Chat = function(socket){
   	this.socket = socket;
-  	this.room = "lobby"; // TODO: how to set from server?
+  	this.room = "Type Type Meow"; // TODO: how to set from server?
   }
 
   Chat.prototype.sendMessage = function(text){

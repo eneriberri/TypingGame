@@ -2,7 +2,7 @@
   var ChatApp = root.ChatApp = (root.ChatApp || {});
 
   var escapeDivText = function(text) {
-  	return $("<div></div>").text(text);
+  	return $("<div class='chat-input'></div>").text(text);
   }
   
   var makeBar = function(progress) {
@@ -33,7 +33,7 @@
     $.each(roomData, function(room, userList){
       if(room.length > 0){
         var roomListing = $("<div></div>").addClass("room-listing");
-        roomListing.append($("<h3></h3>").text(room));
+        roomListing.append("Users in " + room);
         var usersUL = $("<ul></ul>");
         $.each(userList, function(i, username){
           usersUL.append($("<li></li>").text(username));
@@ -90,11 +90,13 @@
       //find the progress bar assoc with the user
       //and replace it with updated progress bar
   		var bar = makeBar(progress);
+      
+      //loads prior users' progress bars
+      //if the bar doesn't exist yet (meaning the obj is length 0)
       if($("[data-user='"+ progress.user + "']").length === 0) {
         $("#progress-bars").append(bar);
       }
       $("[data-user='"+ progress.user + "']").replaceWith(bar);
-      //$("#progress-bars").append(bar);
   	});
     
     prompt.displayPromptArr();
