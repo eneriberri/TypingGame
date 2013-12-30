@@ -115,20 +115,17 @@ h1 {
   overflow: scroll;
 }
 
-.chat-input {
-  
-}
-
 .chat-box {
   width: 70%;
   font-size: 120%;
   border: none;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #b7b7b7;
   background: none;
   font-family: 'Quicksand', sans-serif;  
 }
 
 .room-listings {
+  margin: 0;
   border: 1px solid #a5a5a5;
   height: 130px;
   width: 25%;

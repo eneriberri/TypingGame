@@ -48,6 +48,7 @@
     window.clearInterval(prompt.timerId);
     var accuracy = Math.floor((1 - prompt.typos/prompt.wordsToType.length) * 100);
     $('.accuracy').html("<h3>" + accuracy + "% accuracy rate</h3>");
+    $('#type-box').off('keypress');
   }
 
   $(document).ready(function() {
@@ -81,7 +82,6 @@
     
     socket.on('startProgress', function(data) {
       var progress = { text: 0, user: data.user };
-      console.log(progress);
       var bar = makeBar(progress);
       $("#progress-bars").append(bar);
     });
@@ -103,43 +103,41 @@
     
     //highlights prompt for each letter typed
     var i = 0, begin = true, timerId = null;
-    $('#type-box').keypress(function(event) 
-    {  
+    $('#type-box').on('keypress', function(event) {  
       if(begin) {
         prompt.beginTimer();
         begin = false;
       }
+    
+      prompt.arr[i] = prompt.arr[i].replace(ChatApp.Prompt.REGX, "")
+                      .replace(ChatApp.Prompt.REGX_END, "");
+  
+      if(event.keyCode === prompt.wordsToType.charCodeAt(i)) {         
+        calcProgress(chat, i, prompt, event.keyCode); //calculate progress bar for race
+        
+        if(i !== prompt.arr.length - 1)
+          prompt.arr[i+1] = "<span class='highlight'>"+prompt.arr[i+1]+"</span>";  
+       
+        i++;
       
-      if(i !== prompt.arr.length) { //instead of this, unbind event
-    
-        prompt.arr[i] = prompt.arr[i].replace(ChatApp.Prompt.REGX, "")
-                        .replace(ChatApp.Prompt.REGX_END, "");
-    
-        if(event.keyCode === prompt.wordsToType.charCodeAt(i)) {
-          
-          calcProgress(chat, i, prompt, event.keyCode); //calculate progress bar for race
-          
-          if(i !== prompt.arr.length - 1) {
-            prompt.arr[i+1] = "<span class='highlight'>" 
-                             + prompt.arr[i+1] + "</span>"; 
-          }  
-         
-          i++;
-        
-          //if completed prompt, stop timer, show accuracy rate
-          if(i === prompt.arr.length) 
-            finishedRace(prompt);         
-        }
-        
-        else {
-          prompt.arr[i] = "<span class='error'>" + prompt.arr[i] + "</span>";
-          prompt.typos++;
-        }  
-    
-        promptStr = prompt.arr.join("");
-        $('.prompt').html(promptStr);
+        //if completed prompt, stop timer, show accuracy rate, unbind listener
+        if(i === prompt.arr.length)
+          finishedRace(prompt);         
       }
+      
+      else {
+        prompt.arr[i] = "<span class='error'>" + prompt.arr[i] + "</span>";
+        prompt.typos++;
+      }  
+  
+      promptStr = prompt.arr.join("");
+      $('.prompt').html(promptStr);
     });
     
+    // console.log("i: " + i);
+    // if(i === prompt.arr.length) { //instead of this, unbind event
+    //   console.log("i: " + i);
+    //   $('#type-box').off('keypress');
+    // }
   });
 })(this);
