@@ -118,26 +118,21 @@
         if(i !== prompt.arr.length - 1)
           prompt.arr[i+1] = "<span class='highlight'>"+prompt.arr[i+1]+"</span>";  
        
-        i++;
-      
-        //if completed prompt, stop timer, show accuracy rate, unbind listener
-        if(i === prompt.arr.length)
-          finishedRace(prompt);         
+        i++;        
       }
       
       else {
         prompt.arr[i] = "<span class='error'>" + prompt.arr[i] + "</span>";
         prompt.typos++;
       }  
+      
+      //if completed prompt, stop timer, show accuracy rate, unbind listener
+      if(i === prompt.arr.length)
+        finishedRace(prompt); 
   
       promptStr = prompt.arr.join("");
       $('.prompt').html(promptStr);
     });
-    
-    // console.log("i: " + i);
-    // if(i === prompt.arr.length) { //instead of this, unbind event
-    //   console.log("i: " + i);
-    //   $('#type-box').off('keypress');
-    // }
+
   });
 })(this);
