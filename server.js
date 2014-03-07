@@ -9,7 +9,7 @@ var port = process.env.PORT || 8000;
 
 httpServer.listen(port);
 
-console.log('Server running at http://localhost:' + port + '/');
+console.log('Server running at port:' + port + '/');
 
 var socketIOListen = require('./lib/chat_server.js').socketIOListen;
 
